@@ -10,7 +10,6 @@ def handleMessage(message):
     args = message.split()
     
     if args[0] == 'join':
-        print('@')
         stdout.flush()
         joinSession(args[1])
     elif args[0] == 'message':
@@ -26,7 +25,6 @@ def joinSession(sessionName):
         thread = sessions.run_in_thread(sleep_time=0.001)
 
 def handleSession(message):
-    print('$')
     stdout.flush()
     if message == None:
         return
@@ -34,8 +32,6 @@ def handleSession(message):
         return
     print(message['data'])
     stdout.flush()
-
-handleMessage('join test')
 
 while True:
     line = stdin.readline().strip()
